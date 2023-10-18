@@ -30,7 +30,7 @@ public class ExcelStepdefinitions {
     }
     @Then("baslik satirinda besinci hucreye yeni bir cell olusturur")
     public void baslik_satirinda_besinci_hucreye_yeni_bir_cell_olusturur() {
-        sayfa1.getRow(0).getCell(4)
+        sayfa1.getRow(0).getCell(4);
     }
     @Then("Olusturdugu hucreye {string} yazdirir")
     public void olusturdugu_hucreye_yazdirir(String sutunBasligi) {
