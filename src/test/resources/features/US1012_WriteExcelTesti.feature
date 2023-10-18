@@ -1,0 +1,13 @@
+Feature: US1012 kullanici excel e data ekler
+@wip
+  Scenario: TC16 kullanici Excel e data ekleye bilmeli
+    Given kullanici ulkeler excelinde Sayfa1'e kadar ayarlari yapar
+    Then 5.sutunu olusturur
+    And baslik satirinda besinci hucreye yeni bir cell olusturur
+    And Olusturdugu hucreye "ulke nufusu" yazdirir
+    Then 2.satir ulke nufusu kolonuna 1500000000 yazdirir
+    And 8.satir ulke nufusu kolonuna 250000000 yazdirir
+    And Dosyayi kaydeder
+    And stream leri kapatir
+    Then excel'de 2.satirin ulke nufusunun 1500000000 oldugunu test eder
+    And Then excel'de 8.satirin ulke nufusunun 250000000 oldugunu test eder
