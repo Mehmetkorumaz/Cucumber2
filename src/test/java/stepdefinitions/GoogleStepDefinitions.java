@@ -4,18 +4,19 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.interactions.Actions;
 import pages.GooglePage;
 import utilities.Driver;
-import utilities.ReusableMethods;
 
 public class GoogleStepDefinitions {
     GooglePage googlePage=new GooglePage();
 
-    //@And("cookies kabul eder")
-    //public void cookiesKabulEder() {
-    //    ReusableMethods.
-    //    googlePage.cookiesbutton.click();
-    //}
+    @And("cookies kabul eder")
+    public void cookiesKabulEder() {
+        Actions actions = new Actions(Driver.getDriver());
+        actions.sendKeys(Keys.PAGE_DOWN).perform();
+        googlePage.cookiesKabulButonu.click();
+    }
     @Then("googlede {string} icin arama yapar")
     public void googlede_icin_arama_yapar(String istenenKelime) {
 
@@ -29,4 +30,6 @@ public class GoogleStepDefinitions {
         Assert.assertTrue(actualTitle.contains(istenenKelime));
 
     }
+
+
 }
