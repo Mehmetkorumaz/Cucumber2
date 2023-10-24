@@ -79,4 +79,35 @@ public class AmazonStepdefinitions {
 
         Assert.assertTrue(actualisimElementi.contains(arananUrun));
     }
+
+    @Then("arama kutusuna Iphone {int} Pro yazip aratir")
+    public void aramaKutusunaIphoneProYazipAratir(int arg0) {
+        amazonPage.aramaKutusu.sendKeys(ConfigReader.getProperty("amazonAranacakKelime3")+Keys.ENTER);
+    }
+
+    @And("arama sonuclarinin sonuc sayisini yadirir")
+    public void aramaSonuclarininSonucSayisiniYadirir() {
+       String sonucDegeri= amazonPage.sonucYaziElementi.getText();
+        System.out.println(sonucDegeri);
+    }
+    @Then("amazon ana sayfaya gittiginizi test eder")
+    public void amazon_ana_sayfaya_gittiginizi_test_eder() {
+        String expectedUrl= "https://www.amazon.com/";
+        String actualUrl=Driver.getDriver().getCurrentUrl();
+        Assert.assertEquals(expectedUrl,actualUrl);
+    }
+    @Then("kulanici “Nutella” aramasi yapar")
+    public void kulanici_nutella_aramasi_yapar() {
+      amazonPage.aramaKutusu.sendKeys(ConfigReader.getProperty("amazonAranacakKelime")+Keys.ENTER);
+    }
+
+    @And("{string} ilk urunu tiklayin ve fiyatinin ${double} oldugunu test edin")
+    public void ilkUrunuTiklayinVeFiyatinin$OldugunuTestEdin(String arg0, Double double1) {
+        amazonPage.ilkUrunElementi.click();
+        String expectedFiyat= "$"+ Double.toString(double1);
+        String actualFiyat=amazonPage.fiyat.getText();
+        System.out.println(expectedFiyat);
+        System.out.println(actualFiyat);
+        Assert.assertEquals(expectedFiyat,actualFiyat);
+    }
 }

@@ -30,4 +30,6 @@ public class AmazonPage {
 
     @FindBy(xpath = "//span[@class='a-size-large product-title-word-break']")
     public WebElement ilkUrunIsimElementi;
+    @FindBy (xpath = "//span[@class='a-price a-text-price a-size-medium apexPriceToPay']")
+    public WebElement fiyat;
 }
