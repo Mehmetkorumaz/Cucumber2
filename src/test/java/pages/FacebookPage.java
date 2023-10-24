@@ -20,7 +20,7 @@ public class FacebookPage {
     @FindBy(xpath = "//*[@type='submit']")
     public WebElement loginButonu;
 
-    @FindBy(xpath = "//*[@*='Allow all cookies']")
+    @FindBy(xpath = "//button[@data-cookiebanner='accept_button']")
     public WebElement cookiesKabulButonu;
 
     @FindBy(xpath = "//div[@class='_9ay7']")
